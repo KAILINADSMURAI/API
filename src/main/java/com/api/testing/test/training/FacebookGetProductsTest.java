@@ -5,14 +5,14 @@ import com.relevantcodes.extentreports.LogStatus;
 import static com.jayway.restassured.RestAssured.when;
 
 /**
- * Adsmurai Feeds GET Tests.
+ * Adsmurai Products GET Tests.
  *
  * @author Kailin Chen
  */
 
-public class FacebookGetProductsTest extends BaseAdsmuraiFeedsApi {
+public class FacebookGetProductsTest extends BaseApi {
 
-	@Test(groups = { "FEEDS", "FEEDS-REGRESSION" }, description = "it_should_persist_if_all_ok")
+	@Test(groups = { "TRAINING", "TRAINING-REGRESSION" }, description = "it_should_persist_if_all_ok")
 	public void facebookApiGetProductsTest() {
 		test = extent.startTest("KAILIN TEST", "Verify Get Products Call Functionality");
 		test.assignCategory("KAILIN REGRESSION");

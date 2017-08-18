@@ -41,4 +41,7 @@ jobs:
       - run: mvn clean test
 
       - store_test_results:
-          path: test-output/
+          path: test-output/extendreports.html
+          
+      - store_artifacts:
+          path: /test-output

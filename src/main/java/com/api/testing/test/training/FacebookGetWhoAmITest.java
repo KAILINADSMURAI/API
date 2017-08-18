@@ -6,14 +6,14 @@ import static org.hamcrest.Matchers.equalTo;
 import static com.jayway.restassured.RestAssured.when;
 
 /**
- * Adsmurai Feeds GET Tests.
+ * Adsmurai Who Am I GET Tests.
  *
  * @author Kailin Chen
  */
 
-public class FacebookGetWhoAmITest extends BaseAdsmuraiFeedsApi {
+public class FacebookGetWhoAmITest extends BaseApi {
 
-	@Test(groups = { "FEEDS", "FEEDS-REGRESSION" }, description = "it_should_persist_if_all_ok")
+	@Test(groups = { "TRAINING", "TRAINING-REGRESSION" }, description = "it_should_persist_if_all_ok")
 	public void facebookApiGetWhoAmITest() {
 		test = extent.startTest("KAILIN TEST", "Verify Get Who Am I Call Functionality");
 		test.assignCategory("KAILIN REGRESSION");

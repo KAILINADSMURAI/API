@@ -11,7 +11,7 @@ public class DataGenerator {
 
 	public static String randomEmail(String domain) {
 		String randomString = RandomStringUtils.randomAlphabetic(15);
-		return "feeds" + randomString + "@" + domain;
+		return "training" + randomString + "@" + domain;
 	}
 
 	public static String randomDate() {
@@ -34,7 +34,7 @@ public class DataGenerator {
 	}
 
 	public static String randomUsername() {
-		return "feeds" + RandomStringUtils.randomAlphabetic(15);
+		return "training" + RandomStringUtils.randomAlphabetic(15);
 	}
 
 	public static int randomInt(int min, int max) {

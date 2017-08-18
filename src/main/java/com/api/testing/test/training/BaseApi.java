@@ -14,7 +14,7 @@ import base.BaseApiTest;
 import base.RestAssuredRequestLogger;
 import base.RestAssuredResponseLogger;
 
-public abstract class BaseAdsmuraiFeedsApi extends BaseApiTest {
+public abstract class BaseApi extends BaseApiTest {
 
 	/**
 	 * Base Test class for Adsmurai Feeds tests.
