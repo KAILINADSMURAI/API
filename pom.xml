@@ -6,7 +6,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<suiteXmlFile>${basedir}/testng.xml</suiteXmlFile>
-		<skipTests>true</skipTests>
+		<skipTests>false</skipTests>
 	</properties>
 	<build>
 		<sourceDirectory>src/main/java/com/api/testing/core</sourceDirectory>
