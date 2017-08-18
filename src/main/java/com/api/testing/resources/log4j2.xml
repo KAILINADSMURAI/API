@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="StandardConsole" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{ABSOLUTE}[%t] %5p %c{1}:%L - %m%n" />
+		</Console>
+		<Routing name="Routing">
+			<Routes pattern="$${ctx:logfile}">
+				<!-- This route is chosen if ThreadContext has no value for key ROUTINGKEY. -->
+				<Route key="$${ctx:logfile}">
+					<Console name="Console" target="SYSTEM_OUT">
+						<PatternLayout pattern="%d{ABSOLUTE}[%t] %5p %c{1}:%L - %m%n" />
+					</Console>
+				</Route>
+	
+				<Route>
+					<File name="File" fileName="${ctx:reportsfolder}/${ctx:logfile}.html" append="false">
+				      <!--  <PatternLayout pattern="%d{ABSOLUTE}[%t] %5p %c{1}:%L - %m%n" /> -->
+				    </File>
+				</Route>
+			</Routes>
+		</Routing>	
+	</Appenders>
+	<Loggers>
+		<logger name="base.TestListener" level="trace" additivity="false">
+			<AppenderRef ref="StandardConsole"/>
+		</logger>
+		<logger name="base.InvokedMethodListener" level="trace" additivity="false">
+			<AppenderRef ref="StandardConsole"/>
+		</logger>
+		<Root level="trace">
+			<AppenderRef ref="Routing" />
+		</Root>
+	</Loggers>
+</Configuration>
