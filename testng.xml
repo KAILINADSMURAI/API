@@ -4,6 +4,7 @@
   <test name="Test">
     <classes>
       <class name="training.FacebookGetProductsTest"/>
+      <class name="training.FacebookGetWhoAmITest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
