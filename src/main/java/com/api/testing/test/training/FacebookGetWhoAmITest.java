@@ -1,7 +1,6 @@
 package training;
 
 import org.testng.annotations.Test;
-import com.relevantcodes.extentreports.LogStatus;
 import static org.hamcrest.Matchers.equalTo;
 import static com.jayway.restassured.RestAssured.when;
 
@@ -22,6 +21,5 @@ public class FacebookGetWhoAmITest extends BaseApi {
         when().get(baseUrl() + "105613900027906?" + "access_token=" + TOKEN).then().log().all()
                 .statusCode(200).body("name", equalTo("Kailin Chen")).and()
                 .body("id", equalTo("105613900027906"));
-        test.log(LogStatus.PASS, "Facebook Get Who Am I API Call Works As Expected");
     }
 }

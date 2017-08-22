@@ -1,7 +1,6 @@
 package training;
 
 import org.testng.annotations.Test;
-import com.relevantcodes.extentreports.LogStatus;
 import static com.jayway.restassured.RestAssured.when;
 
 /**
@@ -13,7 +12,7 @@ import static com.jayway.restassured.RestAssured.when;
 public class FacebookGetProductsTest extends BaseApi {
 
     @Test(groups = { "TRAINING",
-            "TRAINING-REGRESSION" }, description = "it_should_persist_if_all_ok")
+            "TRAINING-REGRESSION" }, description = "it_should_persist_if_all_ok_ok")
     public void facebookApiGetProductsTest() {
         test = extent.startTest("KAILIN TEST", "Verify Get Products Call Functionality");
         test.assignCategory("KAILIN REGRESSION");
@@ -22,6 +21,5 @@ public class FacebookGetProductsTest extends BaseApi {
                 + "=product_type,brand&" + LIMIT + "=25&after=" + AFTER + "&access_token=" + TOKEN)
                 .then().log().all().statusCode(200).body("data", exists()).and()
                 .body("paging", exists());
-        test.log(LogStatus.PASS, "Facebook Get Products API Call Works As Expected");
     }
 }

@@ -5,11 +5,14 @@ import static org.hamcrest.Matchers.notNullValue;
 import java.io.File;
 import java.util.Date;
 import org.hamcrest.Matcher;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import com.jayway.restassured.specification.RequestSpecification;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import base.BaseApiTest;
 import base.RestAssuredRequestLogger;
 import base.RestAssuredResponseLogger;
@@ -48,10 +51,14 @@ public abstract class BaseApi extends BaseApiTest {
      * Tear down method for closing all connections, stopping webdriver, etc.
      */
     @AfterMethod(alwaysRun = true)
-    protected void tearDown() {
-        extent.endTest(test);
+    protected void tearDown(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE)
+            test.log(LogStatus.FAIL, "API Call Test Shows Result As FAIL");
+        else if (result.getStatus() == ITestResult.SKIP)
+            test.log(LogStatus.SKIP, "API Call Test Shows Result As SKIP");
+        else
+            test.log(LogStatus.PASS, "API Call Test Shows Result As PASS");
         extent.flush();
-        extent.close();
     }
 
     protected Matcher<Object> exists() {
