@@ -7,7 +7,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class ThreadContainer {
     private static InheritableThreadLocal<CatchAllExceptionSolver> exceptionSolver = new InheritableThreadLocal<CatchAllExceptionSolver>();
     private static InheritableThreadLocal<Integer> retryCount = new InheritableThreadLocal<Integer>();
-    private static InheritableThreadLocal<TestProperties> testProperties = new InheritableThreadLocal<TestProperties>();
     private static InheritableThreadLocal<RemoteWebDriver> driver = new InheritableThreadLocal<RemoteWebDriver>();
     private static InheritableThreadLocal<Map<String, Object>> genericStorage = new InheritableThreadLocal<Map<String, Object>>();
 
@@ -25,14 +24,6 @@ public class ThreadContainer {
 
     public static void setRetryCount(Integer count) {
         retryCount.set(count);
-    }
-
-    public static TestProperties getTestProperties() {
-        return testProperties.get();
-    }
-
-    public static void setTestProperties(TestProperties props) {
-        testProperties.set(props);
     }
 
     public static RemoteWebDriver getDriver() {

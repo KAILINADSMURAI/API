@@ -21,17 +21,12 @@ import org.testng.xml.XmlTest;
 abstract public class BaseTest {
 
     private Logger log;
-    protected TestProperties env;
     private final InheritableThreadLocal<Method> testMethod = new InheritableThreadLocal<Method>();
     private final InheritableThreadLocal<XmlTest> xmlTest = new InheritableThreadLocal<XmlTest>();
     private final InheritableThreadLocal<ITestContext> testContext = new InheritableThreadLocal<ITestContext>();
 
     @BeforeMethod(alwaysRun = true)
     protected void setUp(Method m, ITestContext context, XmlTest test) throws Exception {
-
-        // Load system properties
-        env = new TestProperties(System.getProperties());
-        ThreadContainer.setTestProperties(env);
 
         // Setup log4j
         setupLog4J(m);
@@ -60,7 +55,6 @@ abstract public class BaseTest {
     private void setupLog4J(Method m) {
         String logfile = m.getDeclaringClass().getSimpleName() + "-" + m.getName();
         ThreadContext.put("logfile", logfile);
-        ThreadContext.put("reportsfolder", env.reportsFolder);
         log = LogManager.getLogger(logfile);
     }
 
